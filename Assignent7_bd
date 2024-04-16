@@ -1,0 +1,145 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyPW2Wkdlb6xF1BpIkcHvO7y",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/PalakCode1/big-data/blob/main/Assignent7_bd\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 8,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 106
+        },
+        "id": "bC77YVt3fHmQ",
+        "outputId": "f7595a86-1465-465e-f3cd-772341c375f7"
+      },
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "SyntaxError",
+          "evalue": "invalid syntax. Perhaps you forgot a comma? (<ipython-input-8-b42b43b55172>, line 14)",
+          "traceback": [
+            "\u001b[0;36m  File \u001b[0;32m\"<ipython-input-8-b42b43b55172>\"\u001b[0;36m, line \u001b[0;32m14\u001b[0m\n\u001b[0;31m    a : ((y1)np.sum(x1)- (np.sum(x) np.sum(z)))/ ((n*np.sum(x1)- (np.sum(x))**2 ))\u001b[0m\n\u001b[0m          ^\u001b[0m\n\u001b[0;31mSyntaxError\u001b[0m\u001b[0;31m:\u001b[0m invalid syntax. Perhaps you forgot a comma?\n"
+          ]
+        }
+      ],
+      "source": [
+        "\n",
+        "import numpy as np\n",
+        "import pandas as pd\n",
+        "import matplotlib.pyplot as plt\n",
+        "\n",
+        "x=np.array([1,2,3,4,5])\n",
+        "y=np.array([2,4,5,7,10])\n",
+        "z=np.array(x*y)\n",
+        "n=np.size(x)\n",
+        "\n",
+        "#y=a+bx\n",
+        "y1=np.sum(y)\n",
+        "x1=np.array(x**(2))\n",
+        "\n",
+        "a = ((y1)np.sum(x1)- (np.sum(x) np.sum(z)))/ ((n*np.sum(x1)- (np.sum(x))**2 ))\n",
+        "print(a)\n",
+        "\n",
+        "b=(n*(np.sum(z))- (np.sum(x))(np.sum(y)))/((n*np.sum(x1)- (np.sum(x))*2 ))\n",
+        "print(b)\n",
+        "\n",
+        "n=np.size(x)\n",
+        "\n",
+        "ypred=[]\n",
+        "\n",
+        "for i in range(5):\n",
+        "    t= a+ b*x[i]\n",
+        "    ypred.append(t)\n",
+        "\n",
+        "print(\"The equation of linear regression is: \",a,\"+\",b,\"x\")\n",
+        "\n",
+        "plt.scatter(x, y, color='blue', label=' x Data Points')\n",
+        "plt.scatter(x,ypred, color='yellow',label='y Predicted Points')\n",
+        "\n",
+        "plt.plot(x, a + b * x, color='red', label='Linear Regression Line')\n",
+        "\n",
+        "plt.xlabel('X')\n",
+        "plt.ylabel('Y')\n",
+        "plt.title('Linear Regression')\n",
+        "plt.legend()\n",
+        "\n",
+        "plt.grid(True)\n",
+        "plt.show()"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import numpy as np\n",
+        " from sklearn.linear_model import LinearRegression\n",
+        "\n",
+        "\n",
+        " x = np.array([5, 15, 25, 35, 45, 55]).reshape((-1, 1))\n",
+        " # x array should be 2d\n",
+        " y = np.array([5, 20, 14, 32, 22, 38])\n",
+        "\n",
+        " model = LinearRegression()\n",
+        "\n",
+        " model.fit(x, y)\n",
+        "\n",
+        " model = LinearRegression().fit(x, y)\n",
+        "\n",
+        " print(f\"intercept: {model.intercept_}\")\n",
+        "\n",
+        " print(f\"slope: {model.coef_}\")\n",
+        "\n",
+        " y_pred = model.predict(x)\n",
+        "\n",
+        " print(f\"predicted response:\\n{y_pred}\")\n",
+        "\n",
+        " y_pred = model.intercept_ + (model.coef_ * x)\n",
+        "\n",
+        " print(f\"predicted response:\\n{y_pred}\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 106
+        },
+        "id": "VAnK7IPHfNTG",
+        "outputId": "fc494b12-21fc-4c7a-da64-b60e8948aef4"
+      },
+      "execution_count": 2,
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "IndentationError",
+          "evalue": "unexpected indent (<ipython-input-2-b7c064b2924b>, line 2)",
+          "traceback": [
+            "\u001b[0;36m  File \u001b[0;32m\"<ipython-input-2-b7c064b2924b>\"\u001b[0;36m, line \u001b[0;32m2\u001b[0m\n\u001b[0;31m    from sklearn.linear_model import LinearRegression\u001b[0m\n\u001b[0m    ^\u001b[0m\n\u001b[0;31mIndentationError\u001b[0m\u001b[0;31m:\u001b[0m unexpected indent\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
